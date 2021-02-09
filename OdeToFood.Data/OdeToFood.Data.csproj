@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Models\CuisineType.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Services\InMemoryRestaurantData.cs" />
     <Compile Include="Models\Services\IRestaurantData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
