@@ -17,7 +17,13 @@ namespace OdeToFood.Data.Models.Services
                     new Restaurant {Id = 2 , Name = "Ashley's Masala", Cuisine = CuisineType.Indian},
                     new Restaurant {Id = 3 , Name = "Kelly's Baggete", Cuisine = CuisineType.French}
                 };   
-        }           
+        }
+
+        public Restaurant Get(int id)
+        {
+            return restaurants.FirstOrDefault(r => r.Id == id);
+        }
+
         public IEnumerable<Restaurant> GetAll()
         {
             return restaurants.OrderBy(r => r.Name);
