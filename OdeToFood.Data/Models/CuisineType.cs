@@ -12,6 +12,6 @@ namespace OdeToFood.Data.Models
         Italian,
         Indian,
         French
-
+           
     }
 }
