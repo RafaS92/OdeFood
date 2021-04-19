@@ -28,7 +28,7 @@ namespace OdeToFood.Web.Controllers
             var model = db.Get(id);
             if(model == null)
             {
-                return RedirectToAction("Index");
+                return View("NotFound");
             }
             return View(model);
         }
@@ -47,7 +47,29 @@ namespace OdeToFood.Web.Controllers
             {
             
             db.Add(restaurant);
+            return RedirectToAction("Details", new { id = restaurant.Id });
+
+            }
             return View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var model = db.Get(id); 
+                if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        } 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(restaurant);
+                return RedirectToAction("Details", new { id = restaurant.Id });
 
             }
             return View();
